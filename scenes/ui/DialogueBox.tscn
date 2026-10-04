@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/DialogueBox.gd" id="1_dialogue"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_dialogue")
+
+[node name="Root" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Box" type="Panel" parent="Root"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -212.0
+offset_right = -72.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="Root/Box"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="Columns" type="HBoxContainer" parent="Root/Box/Margin"]
+theme_override_constants/separation = 18
+
+[node name="Portrait" type="TextureRect" parent="Root/Box/Margin/Columns"]
+custom_minimum_size = Vector2(104, 104)
+expand_mode = 1
+stretch_mode = 5
+size_flags_vertical = 4
+
+[node name="Lines" type="VBoxContainer" parent="Root/Box/Margin/Columns"]
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="NameLabel" type="Label" parent="Root/Box/Margin/Columns/Lines"]
+theme_override_font_sizes/font_size = 21
+
+[node name="TextLabel" type="RichTextLabel" parent="Root/Box/Margin/Columns/Lines"]
+size_flags_vertical = 3
+scroll_active = false
+theme_override_font_sizes/normal_font_size = 21
+
+[node name="HintLabel" type="Label" parent="Root/Box/Margin/Columns/Lines"]
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(0.87451, 0.80392, 0.68235, 1)
+theme_override_font_sizes/font_size = 15

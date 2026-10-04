@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "//": "Perlu ekstensi Godot Tools. Jalankan proyek dari VS Code (F5).",
+      "name": "Godot: jalankan proyek",
+      "type": "godot",
+      "request": "launch",
+      "project": "${workspaceFolder}",
+      "address": "127.0.0.1",
+      "port": 6007,
+      "scene": "",
+      "debug_collisions": false
+    }
+  ]
+}

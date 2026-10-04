@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/npc/Npc.gd" id="1_npc"]
+[ext_resource type="Script" path="res://scripts/util/CharacterVisual.gd" id="2_visual"]
+[ext_resource type="Script" path="res://scripts/world/InteractPrompt.gd" id="3_prompt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_area"]
+radius = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(22, 14)
+
+[node name="Npc" type="Area2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_npc")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_area")
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_visual")
+palette_id = "raka"
+facing = Vector2(0, 1)
+
+[node name="Prompt" type="Node2D" parent="."]
+position = Vector2(0, -76)
+script = ExtResource("3_prompt")

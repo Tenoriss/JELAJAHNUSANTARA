@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/MenuLayer.gd" id="1_layer"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseMenu.tscn" id="2_pause"]
+[ext_resource type="PackedScene" path="res://scenes/ui/QuestPanel.tscn" id="3_quest"]
+[ext_resource type="PackedScene" path="res://scenes/ui/InventoryPanel.tscn" id="4_inventory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/NotesPanel.tscn" id="5_notes"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SettingsPanel.tscn" id="6_settings"]
+
+[node name="MenuLayer" type="CanvasLayer"]
+layer = 40
+script = ExtResource("1_layer")
+
+[node name="Root" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PauseMenu" parent="Root" instance=ExtResource("2_pause")]
+
+[node name="QuestPanel" parent="Root" instance=ExtResource("3_quest")]
+
+[node name="InventoryPanel" parent="Root" instance=ExtResource("4_inventory")]
+
+[node name="NotesPanel" parent="Root" instance=ExtResource("5_notes")]
+
+[node name="SettingsPanel" parent="Root" instance=ExtResource("6_settings")]

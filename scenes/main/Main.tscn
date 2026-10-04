@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/main/Main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/ui/Hud.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="3_dialogue"]
+[ext_resource type="PackedScene" path="res://scenes/ui/MenuLayer.tscn" id="4_menu"]
+
+[node name="Main" type="Node"]
+process_mode = 3
+script = ExtResource("1_main")
+
+[node name="Screens" type="Node" parent="."]
+
+[node name="Hud" parent="." instance=ExtResource("2_hud")]
+
+[node name="DialogueBox" parent="." instance=ExtResource("3_dialogue")]
+
+[node name="PuzzleLayer" type="CanvasLayer" parent="."]
+layer = 25
+
+[node name="MenuLayer" parent="." instance=ExtResource("4_menu")]
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+layer = 70
+
+[node name="Fade" type="ColorRect" parent="FadeLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10196, 0.082353, 0.062745, 1)
+mouse_filter = 2

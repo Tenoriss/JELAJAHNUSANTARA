@@ -1,0 +1,36 @@
+{
+  "//": "Pengaturan VS Code untuk TAPAK NUSA (proyek Godot di akar repositori).",
+
+  "files.exclude": {
+    "**/.godot": true,
+    "**/__pycache__": true
+  },
+  "search.exclude": {
+    "**/.godot": true,
+    "**/__pycache__": true
+  },
+  "files.watcherExclude": {
+    "**/.godot/**": true
+  },
+  "files.associations": {
+    "*.tscn": "ini",
+    "*.tres": "ini",
+    "*.gd": "gdscript"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "editor.tabSize": 2,
+  "[gdscript]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "python.analysis.extraPaths": ["${workspaceFolder}/tools"],
+
+  "godotTools.editorPath.godot4": "godot"
+}

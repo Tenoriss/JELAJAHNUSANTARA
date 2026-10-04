@@ -1,0 +1,77 @@
+{
+	"dimas": {
+		"nodes": [
+			{
+				"id": "kain",
+				"priority": 20,
+				"conditions": {"quest_active": "q_hilang", "not_flags": {"cloth_found": true}},
+				"lines": [
+					{"speaker": "Dimas", "text": "Ra... kamu mencari kain pola, ya?", "portrait": "dimas"},
+					{"speaker": "Raka", "text": "Kamu tahu di mana?", "portrait": "raka"},
+					{"speaker": "Dimas", "text": "... Aku yang mengambilnya.", "portrait": "dimas"},
+					{"speaker": "Raka", "text": "Kamu?", "portrait": "raka"},
+					{"speaker": "Dimas", "text": "Aku ingin menyalin polanya. Aku kira tidak ada yang peduli.", "portrait": "dimas"},
+					{"speaker": "Dimas", "text": "Warga selalu bilang aku belum bisa apa-apa.", "portrait": "dimas"},
+					{"speaker": "Raka", "text": "Ini justru sebaliknya, Dimas.", "portrait": "raka"},
+					{"speaker": "Dimas", "text": "Ini kainnya. Maafkan aku.", "portrait": "dimas"}
+				],
+				"effects": {
+					"give_items": ["kain_pola"],
+					"complete_objectives": [
+						{"quest": "q_hilang", "objective": "o_tanya"},
+						{"quest": "q_hilang", "objective": "o_temu"}
+					],
+					"set_flags": {"cloth_found": true}
+				}
+			},
+			{
+				"id": "belajar",
+				"priority": 10,
+				"conditions": {"quest_active": "q_belajar"},
+				"lines": [
+					{"speaker": "Dimas", "text": "Bawa kainnya ke bengkel. Pak Jaya tahu polanya.", "portrait": "dimas"},
+					{"speaker": "Dimas", "text": "Gambaranku tidak bagus. Mungkin kamu bisa lebih teliti.", "portrait": "dimas"}
+				]
+			},
+			{
+				"id": "guyub",
+				"priority": 10,
+				"conditions": {"quest_active": "q_guyub", "not_flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Dimas", "text": "Aku ikut bawa bambunya ke lapangan, Ra!", "portrait": "dimas"},
+					{"speaker": "Dimas", "text": "Biar warga lihat aku tidak cuma bisa berdiri.", "portrait": "dimas"}
+				]
+			},
+			{
+				"id": "siap",
+				"priority": 12,
+				"conditions": {"flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Dimas", "text": "Talinya aku yang pegang, Ra. Kencang, kok.", "portrait": "dimas"},
+					{"speaker": "Dimas", "text": "Mbah Seno bilang terima kasih. Itu pertama kali buat aku.", "portrait": "dimas"}
+				]
+			},
+			{
+				"id": "awal",
+				"priority": 5,
+				"conditions": {"quest_active": ["q_pulang", "q_persiapan"]},
+				"lines": [
+					{"speaker": "Dimas", "text": "Ra! Kapan sampai?", "portrait": "dimas"},
+					{"speaker": "Raka", "text": "Tadi pagi. Kamu ikut persiapan?", "portrait": "raka"},
+					{"speaker": "Dimas", "text": "Ikut. Tapi warga bilang aku belum bisa apa-apa.", "portrait": "dimas"},
+					{"speaker": "Dimas", "text": "Katanya acara ini cuma untuk orang tua.", "portrait": "dimas"},
+					{"speaker": "Raka", "text": "Aku juga belum tahu banyak, Dim.", "portrait": "raka"}
+				],
+				"effects": {"set_flags": {"met_dimas": true}}
+			},
+			{
+				"id": "default",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Dimas", "text": "Aku jadi tahu kenapa warga sibuk sekali.", "portrait": "dimas"},
+					{"speaker": "Dimas", "text": "Ternyata bukan acaranya. Tapi yang mengerjakannya.", "portrait": "dimas"}
+				]
+			}
+		]
+	}
+}

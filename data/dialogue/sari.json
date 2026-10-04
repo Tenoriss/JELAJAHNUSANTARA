@@ -1,0 +1,75 @@
+{
+	"sari": {
+		"nodes": [
+			{
+				"id": "hilang_intro",
+				"priority": 20,
+				"conditions": {"quest_not_started": "q_hilang", "flags": {"supplies_ready": true}},
+				"lines": [
+					{"speaker": "Sari", "text": "Raka, ada masalah.", "portrait": "sari"},
+					{"speaker": "Raka", "text": "Kenapa?", "portrait": "raka"},
+					{"speaker": "Sari", "text": "Kain pola untuk panggung hilang. Sejak pagi warga mencarinya.", "portrait": "sari"},
+					{"speaker": "Raka", "text": "Kainnya seperti apa?", "portrait": "raka"},
+					{"speaker": "Sari", "text": "Pola tua, disimpan turun-temurun. Tanpa itu panggung terasa kosong.", "portrait": "sari"},
+					{"speaker": "Raka", "text": "Aku cari. Tanya warga dulu.", "portrait": "raka"},
+					{"speaker": "Sari", "text": "Terima kasih. Coba tanya Bu Rini, dia biasanya tahu.", "portrait": "sari"}
+				],
+				"effects": {"start_quest": "q_hilang"}
+			},
+			{
+				"id": "guyub",
+				"priority": 18,
+				"conditions": {"quest_active": "q_guyub", "not_flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Sari", "text": "Lapangan Guyub sudah dibersihkan.", "portrait": "sari"},
+					{"speaker": "Sari", "text": "Bawa perlengkapannya ke sana. Kita susun bersama.", "portrait": "sari"}
+				]
+			},
+			{
+				"id": "belajar",
+				"priority": 9,
+				"conditions": {"quest_active": "q_belajar"},
+				"lines": [
+					{"speaker": "Sari", "text": "Pak Jaya sedang di bengkel.", "portrait": "sari"},
+					{"speaker": "Sari", "text": "Dia sabar mengajar, asal kamu juga sabar mendengar.", "portrait": "sari"}
+				]
+			},
+			{
+				"id": "hilang_progress",
+				"priority": 9,
+				"conditions": {"quest_active": "q_hilang"},
+				"lines": [
+					{"speaker": "Sari", "text": "Sudah ada kabar soal kain pola?", "portrait": "sari"},
+					{"speaker": "Sari", "text": "Coba tanya Bu Rini di kebun, atau Dimas.", "portrait": "sari"}
+				]
+			},
+			{
+				"id": "awal",
+				"priority": 5,
+				"conditions": {"quest_active": ["q_pulang", "q_persiapan"]},
+				"lines": [
+					{"speaker": "Sari", "text": "Raka! Sudah lama kamu tidak ke sini.", "portrait": "sari"},
+					{"speaker": "Raka", "text": "Sibuk di kota. Maaf.", "portrait": "raka"},
+					{"speaker": "Sari", "text": "Tidak perlu minta maaf. Yang penting kamu datang.", "portrait": "sari"},
+					{"speaker": "Sari", "text": "Kalau mencari bahan acara, bambunya ada di tepi sawah.", "portrait": "sari"}
+				],
+				"effects": {"set_flags": {"met_sari": true}}
+			},
+			{
+				"id": "default",
+				"conditions": {"flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Sari", "text": "Warga datang sendiri, Ra. Tidak ada yang disuruh.", "portrait": "sari"},
+					{"speaker": "Sari", "text": "Itu yang bikin aku betah di sini.", "portrait": "sari"}
+				]
+			},
+			{
+				"id": "fallback",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Sari", "text": "Kalau ada yang perlu dibantu, bilang saja.", "portrait": "sari"}
+				]
+			}
+		]
+	}
+}

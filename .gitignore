@@ -1,0 +1,19 @@
+# Godot 4 editor cache / imported resources
+.godot/
+.import/
+
+# Export output
+build/
+export/
+*.pck
+*.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Python tooling (tools/ folder is hidden from Godot by tools/.gdignore)
+__pycache__/
+*.pyc
