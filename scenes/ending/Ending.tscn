@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ending/Ending.gd" id="1_ending"]
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_ending")
+
+[node name="Villagers" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="TitleCard" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="TitleCard"]
+anchor_right = 1.0
+offset_top = 244.0
+offset_bottom = 336.0
+grow_horizontal = 2
+text = "TAPAK NUSA"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.94902, 0.69412, 0.20392, 1)
+theme_override_colors/font_outline_color = Color(0.16863, 0.12941, 0.09412, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 78
+
+[node name="TaglineLabel" type="Label" parent="TitleCard"]
+anchor_right = 1.0
+offset_top = 352.0
+offset_bottom = 386.0
+grow_horizontal = 2
+text = "Setiap langkah meninggalkan cerita."
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.96471, 0.91765, 0.83922, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="CreditsButton" type="Button" parent="TitleCard"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -128.0
+offset_right = 170.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Lihat Kredit  ▸"

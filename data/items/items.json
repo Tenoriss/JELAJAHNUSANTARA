@@ -1,0 +1,26 @@
+{
+	"bambu": {
+		"name": "Bambu",
+		"description": "Batang bambu dari rumpun di tepi sawah. Ringan, kuat, dan mudah dibentuk warga.",
+		"color": "#9ba84a",
+		"icon": "bamboo"
+	},
+	"tali": {
+		"name": "Tali Ijuk",
+		"description": "Tali dari serat ijuk. Biasa dipakai untuk mengikat tiang dan gapura.",
+		"color": "#c4ae8c",
+		"icon": "rope"
+	},
+	"papan_kayu": {
+		"name": "Papan Kayu",
+		"description": "Papan bekas rak bengkel Pak Jaya. Masih kuat untuk meja panjang.",
+		"color": "#8b5a2b",
+		"icon": "plank"
+	},
+	"kain_pola": {
+		"name": "Kain Pola",
+		"description": "Kain dengan pola yang diwariskan turun-temurun. Polanya akan dipasang di panggung.",
+		"color": "#2f4858",
+		"icon": "cloth"
+	}
+}

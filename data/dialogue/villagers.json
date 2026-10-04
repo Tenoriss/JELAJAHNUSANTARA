@@ -1,0 +1,62 @@
+{
+	"bark_petani": {
+		"nodes": [
+			{
+				"id": "guyub",
+				"priority": 5,
+				"conditions": {"flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Pak Tani", "text": "Sawahnya saya tinggal sebentar. Tetangga yang menjaga airnya.", "portrait": "warga_petani"},
+					{"speaker": "Pak Tani", "text": "Begitu cara kami di sini.", "portrait": "warga_petani"}
+				]
+			},
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Pak Tani", "text": "Kalau panen nanti, datang ya. Kami masak bersama.", "portrait": "warga_petani"}
+				]
+			}
+		]
+	},
+	"bark_penjual": {
+		"nodes": [
+			{
+				"id": "guyub",
+				"priority": 5,
+				"conditions": {"flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Bu Warung", "text": "Semua makanan sudah dibawa ke lapangan.", "portrait": "warga_penjual"},
+					{"speaker": "Bu Warung", "text": "Hari ini tidak ada yang jualan. Semua makan bersama.", "portrait": "warga_penjual"}
+				]
+			},
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Bu Warung", "text": "Mau minum? Ambil saja, nanti diganti kalau sempat.", "portrait": "warga_penjual"}
+				]
+			}
+		]
+	},
+	"bark_anak": {
+		"nodes": [
+			{
+				"id": "guyub",
+				"priority": 5,
+				"conditions": {"flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Nia", "text": "Ada lampu di mana-mana! Bagus, ya!", "portrait": "warga_anak"},
+					{"speaker": "Nia", "text": "Nanti aku bantu bawa kursi, katanya harus ikut kerja.", "portrait": "warga_anak"}
+				]
+			},
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Nia", "text": "Kak Raka tahu tidak? Kalau kerja banyak orang, cepat selesai!", "portrait": "warga_anak"}
+				]
+			}
+		]
+	}
+}

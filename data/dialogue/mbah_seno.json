@@ -1,0 +1,87 @@
+{
+	"mbah_seno": {
+		"nodes": [
+			{
+				"id": "pertama",
+				"priority": 10,
+				"conditions": {"quest_active": "q_pulang"},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Raka? Akhirnya kamu pulang juga.", "portrait": "mbah_seno"},
+					{"speaker": "Raka", "text": "Iya, Mbah. Katanya warga sedang mempersiapkan acara?", "portrait": "raka"},
+					{"speaker": "Mbah Seno", "text": "Betul. Guyub Desa. Tapi beberapa persiapan belum selesai.", "portrait": "mbah_seno"},
+					{"speaker": "Raka", "text": "Aku bantu.", "portrait": "raka"},
+					{"speaker": "Mbah Seno", "text": "Bagus. Mulai dari yang kecil dulu.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Kita perlu bambu, tali ijuk, dan papan kayu.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Bambu ada di tepi sawah. Tali di kebun Bu Rini. Papan di bengkel Pak Jaya.", "portrait": "mbah_seno"}
+				],
+				"effects": {
+					"complete_objectives": [{"quest": "q_pulang", "objective": "o_seno"}],
+					"message": "Bicara dengan warga untuk mengumpulkan perlengkapan."
+				}
+			},
+			{
+				"id": "persiapan",
+				"priority": 8,
+				"conditions": {"quest_active": "q_persiapan"},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Bagaimana perlengkapannya?", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Ambil secukupnya saja. Alam tidak suka diambil berlebihan.", "portrait": "mbah_seno"}
+				]
+			},
+			{
+				"id": "hilang",
+				"priority": 8,
+				"conditions": {"quest_active": "q_hilang"},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Kain pola itu tua, Raka.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Ibunya Dimas yang menyimpannya. Coba tanya anak itu.", "portrait": "mbah_seno"}
+				]
+			},
+			{
+				"id": "belajar",
+				"priority": 8,
+				"conditions": {"quest_active": "q_belajar"},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Pergi ke bengkel Pak Jaya.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Dia satu-satunya yang masih ingat nama tiap pola.", "portrait": "mbah_seno"}
+				]
+			},
+			{
+				"id": "guyub",
+				"priority": 8,
+				"conditions": {"quest_active": "q_guyub", "not_flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Bawa perlengkapan itu ke Lapangan Guyub.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Sari sudah menunggu di sana sejak tadi.", "portrait": "mbah_seno"}
+				]
+			},
+			{
+				"id": "siap_mulai",
+				"priority": 20,
+				"conditions": {"quest_active": "q_guyub", "flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Lihat. Mereka datang tanpa dipanggil dua kali.", "portrait": "mbah_seno"},
+					{"speaker": "Sari", "text": "Gapura sudah berdiri, Mbah!", "portrait": "sari"},
+					{"speaker": "Dimas", "text": "Talinya aku yang pegang. Kencang, kok!", "portrait": "dimas"},
+					{"speaker": "Mbah Seno", "text": "Guyub Desa bukan soal acaranya, Raka.", "portrait": "mbah_seno"},
+					{"speaker": "Raka", "text": "Lalu soal apa, Mbah?", "portrait": "raka"},
+					{"speaker": "Mbah Seno", "text": "Soal kita. Kenapa kita mau bekerja untuk orang lain.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Ayo. Acara kita mulai.", "portrait": "mbah_seno"}
+				],
+				"effects": {
+					"complete_quests": ["q_guyub", "q_tapak"],
+					"sfx": "gong",
+					"finish_game": true
+				}
+			},
+			{
+				"id": "default",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Mbah Seno", "text": "Dulu aku juga pulang ke desa ini karena dipanggil orang tua.", "portrait": "mbah_seno"},
+					{"speaker": "Mbah Seno", "text": "Sekarang aku tahu kenapa aku tinggal.", "portrait": "mbah_seno"}
+				]
+			}
+		]
+	}
+}

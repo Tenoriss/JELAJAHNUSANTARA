@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/npc/Npc.tscn" id="1_npc"]
+[ext_resource type="Script" path="res://scripts/npc/Villager.gd" id="2_villager"]
+
+[node name="Villager" instance=ExtResource("1_npc")]
+script = ExtResource("2_villager")
+wander_speed = 24.0

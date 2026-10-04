@@ -1,0 +1,133 @@
+{
+	"papan_selamat_datang": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Papan Desa", "text": "SELAMAT DATANG DI DESA ARUNIKA", "color": "#f2b134"},
+					{"speaker": "Papan Desa", "text": "Acara Guyub Desa — hari ini, di Lapangan Guyub.", "color": "#f2b134"},
+					{"speaker": "Papan Desa", "text": "Guyub Desa adalah tradisi fiktif dalam game ini: sebuah gambaran semangat gotong royong masyarakat Indonesia, bukan nama ritual resmi dari daerah tertentu.", "color": "#dfcdae"}
+				],
+				"effects": {"note": "guyub_desa"}
+			}
+		]
+	},
+	"papan_alun_alun": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Papan Pengumuman", "text": "Kerja bakti membersihkan alun-alun: Sabtu pagi.", "color": "#dfcdae"},
+					{"speaker": "Papan Pengumuman", "text": "Yang hadir membawa alat sendiri. Yang tidak sempat, membawa makanan.", "color": "#dfcdae"},
+					{"speaker": "Papan Pengumuman", "text": "Semua cara boleh, yang penting hadir.", "color": "#f2b134"}
+				],
+				"effects": {"note": "gotong_royong"}
+			}
+		]
+	},
+	"papan_sawah": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Papan Sawah", "text": "Musim tanam: bibit dibagi rata, air dibagi bergiliran.", "color": "#dfcdae"},
+					{"speaker": "Papan Sawah", "text": "Warga biasa menyebut bantuan seperti ini \"sambatan\".", "color": "#f2b134"},
+					{"speaker": "Papan Sawah", "text": "Yang dibantu akan membantu lagi saat giliran tiba.", "color": "#dfcdae"}
+				],
+				"effects": {"note": "sambatan_sawah"}
+			}
+		]
+	},
+	"papan_bengkel": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Papan Bengkel", "text": "Alat boleh dipinjam, asal dikembalikan di tempatnya.", "color": "#dfcdae"},
+					{"speaker": "Papan Bengkel", "text": "Pak Jaya mengajari siapa saja yang mau belajar.", "color": "#dfcdae"},
+					{"speaker": "Papan Bengkel", "text": "Ilmu yang dibagi tidak akan habis.", "color": "#f2b134"}
+				],
+				"effects": {"note": "warisan_ilmu"}
+			}
+		]
+	},
+	"sumur": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Sumur Tua", "text": "Airnya jernih. Tali timba diganti setiap tahun oleh warga.", "color": "#dfcdae"},
+					{"speaker": "Sumur Tua", "text": "Semua orang minum dari sumber yang sama.", "color": "#f2b134"},
+					{"speaker": "Sumur Tua", "text": "Karena itu semua ikut menjaganya.", "color": "#dfcdae"}
+				],
+				"effects": {"note": "sumur_bersama"}
+			}
+		]
+	},
+	"kebun_bu_rini": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Petak Kebun", "text": "Bibit diambil secukupnya, lalu ditanam kembali.", "color": "#dfcdae"},
+					{"speaker": "Petak Kebun", "text": "Bambu, kayu, dan ijuk diambil dari alam sekitar desa.", "color": "#dfcdae"},
+					{"speaker": "Petak Kebun", "text": "Yang diambil hari ini harus tumbuh lagi untuk anak cucu.", "color": "#f2b134"}
+				],
+				"effects": {"note": "bahan_alam"}
+			}
+		]
+	},
+	"balai_desa": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Balai Desa", "text": "Papan kayu di dinding mencatat nama-nama yang pernah merawat balai ini.", "color": "#dfcdae"},
+					{"speaker": "Balai Desa", "text": "Tidak ada nama yang lebih besar dari yang lain.", "color": "#f2b134"},
+					{"speaker": "Balai Desa", "text": "Semua ditulis dengan ukuran huruf yang sama.", "color": "#dfcdae"}
+				],
+				"effects": {"note": "halaman_warga"}
+			}
+		]
+	},
+	"panggung": {
+		"nodes": [
+			{
+				"id": "siap",
+				"priority": 10,
+				"conditions": {"flags": {"event_ready": true}},
+				"lines": [
+					{"speaker": "Lapangan Guyub", "text": "Warga sudah berkumpul. Lampu mulai dinyalakan.", "color": "#dfcdae"},
+					{"speaker": "Lapangan Guyub", "text": "Mbah Seno menunggu di dekat panggung.", "color": "#f2b134"}
+				]
+			},
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Lapangan Guyub", "text": "Panggung masih kosong. Beberapa perlengkapan belum terpasang.", "color": "#dfcdae"},
+					{"speaker": "Lapangan Guyub", "text": "Susun perlengkapannya di depan panggung, lalu bicara dengan Mbah Seno.", "color": "#f2b134"}
+				]
+			}
+		]
+	},
+	"papan_ajakan": {
+		"nodes": [
+			{
+				"id": "utama",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Papan Kerja Bakti", "text": "BERSAMA LEBIH RINGAN", "color": "#f2b134"},
+					{"speaker": "Papan Kerja Bakti", "text": "Bawa tenaga, pikiran, atau makanan. Tidak ada yang dihitung.", "color": "#dfcdae"}
+				]
+			}
+		]
+	}
+}

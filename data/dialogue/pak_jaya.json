@@ -1,0 +1,86 @@
+{
+	"pak_jaya": {
+		"nodes": [
+			{
+				"id": "papan",
+				"priority": 20,
+				"conditions": {"quest_active": "q_persiapan", "not_flags": {"has_papan": true}},
+				"lines": [
+					{"speaker": "Pak Jaya", "text": "Raka! Tumben ke bengkel.", "portrait": "pak_jaya"},
+					{"speaker": "Raka", "text": "Saya cari perlengkapan acara, Pak.", "portrait": "raka"},
+					{"speaker": "Pak Jaya", "text": "Papan kayu, ya? Ambil yang di rak itu.", "portrait": "pak_jaya"},
+					{"speaker": "Pak Jaya", "text": "Pilih yang permukaannya rata. Yang retak jangan dipakai.", "portrait": "pak_jaya"},
+					{"speaker": "Raka", "text": "Siap. Terima kasih, Pak.", "portrait": "raka"}
+				],
+				"effects": {
+					"give_items": ["papan_kayu"],
+					"advance_objectives": [{"quest": "q_persiapan", "objective": "o_papan"}],
+					"set_flags": {"has_papan": true}
+				}
+			},
+			{
+				"id": "pola_intro",
+				"priority": 20,
+				"conditions": {"quest_active": "q_belajar"},
+				"lines": [
+					{"speaker": "Pak Jaya", "text": "Jadi itu kain polanya. Bagus, masih utuh.", "portrait": "pak_jaya"},
+					{"speaker": "Raka", "text": "Warga bilang Bapak tahu arti polanya.", "portrait": "raka"},
+					{"speaker": "Pak Jaya", "text": "Tiap bentuk punya nama dan arti sendiri.", "portrait": "pak_jaya"},
+					{"speaker": "Pak Jaya", "text": "Kawung, ceplok, tumpal. Semuanya disusun dengan aturan.", "portrait": "pak_jaya"},
+					{"speaker": "Raka", "text": "Aku tidak tahu artinya.", "portrait": "raka"},
+					{"speaker": "Pak Jaya", "text": "Belajar itu bukan menghafal. Coba susun sendiri.", "portrait": "pak_jaya"},
+					{"speaker": "Pak Jaya", "text": "Kalau salah, ulangi. Tidak apa-apa.", "portrait": "pak_jaya"}
+				],
+				"effects": {
+					"complete_objectives": [{"quest": "q_belajar", "objective": "o_belajar"}],
+					"start_puzzle": "pattern"
+				}
+			},
+			{
+				"id": "persiapan_hint",
+				"priority": 9,
+				"conditions": {"quest_active": "q_persiapan"},
+				"lines": [
+					{"speaker": "Pak Jaya", "text": "Kalau masih kurang bahan, bambunya di tepi sawah.", "portrait": "pak_jaya"},
+					{"speaker": "Pak Jaya", "text": "Talinya di kebun Bu Rini. Dia sendiri yang memilinnya.", "portrait": "pak_jaya"}
+				]
+			},
+			{
+				"id": "guyub",
+				"priority": 8,
+				"conditions": {"quest_active": ["q_guyub", "q_tapak"]},
+				"lines": [
+					{"speaker": "Pak Jaya", "text": "Aku bawa palu dan paku, siapa tahu kurang.", "portrait": "pak_jaya"},
+					{"speaker": "Pak Jaya", "text": "Di lapangan, semua orang jadi tukang.", "portrait": "pak_jaya"}
+				]
+			},
+			{
+				"id": "default",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Pak Jaya", "text": "Bengkel ini dulu milik bapakku.", "portrait": "pak_jaya"},
+					{"speaker": "Pak Jaya", "text": "Alat boleh aus, tapi ilmunya harus terus dipakai.", "portrait": "pak_jaya"}
+				]
+			}
+		]
+	},
+	"pak_jaya_sukses": {
+		"nodes": [
+			{
+				"id": "sukses",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Pak Jaya", "text": "Nah! Itu susunan yang benar.", "portrait": "pak_jaya"},
+					{"speaker": "Raka", "text": "Ternyata susah juga.", "portrait": "raka"},
+					{"speaker": "Pak Jaya", "text": "Dulu ibuku mengajari aku dengan cara yang sama. Coba, salah, ulangi.", "portrait": "pak_jaya"},
+					{"speaker": "Raka", "text": "Jadi ini yang disebut belajar bersama?", "portrait": "raka"},
+					{"speaker": "Pak Jaya", "text": "Betul. Ilmu tidak berkurang kalau dibagi.", "portrait": "pak_jaya"}
+				],
+				"effects": {
+					"complete_objectives": [{"quest": "q_belajar", "objective": "o_pola"}],
+					"message": "Pola sudah tersusun rapi."
+				}
+			}
+		]
+	}
+}

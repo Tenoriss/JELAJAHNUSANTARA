@@ -1,0 +1,881 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/Village.gd" id="1_village"]
+[ext_resource type="Script" path="res://scripts/world/VillageGround.gd" id="2_ground"]
+[ext_resource type="PackedScene" path="res://scenes/props/Prop.tscn" id="3_prop"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="4_player"]
+[ext_resource type="PackedScene" path="res://scenes/npc/Npc.tscn" id="5_npc"]
+[ext_resource type="PackedScene" path="res://scenes/npc/Villager.tscn" id="6_villager"]
+[ext_resource type="PackedScene" path="res://scenes/props/ItemPickup.tscn" id="7_pickup"]
+[ext_resource type="PackedScene" path="res://scenes/props/InfoBoard.tscn" id="8_board"]
+[ext_resource type="PackedScene" path="res://scenes/world/AreaZone.tscn" id="9_zone"]
+[ext_resource type="PackedScene" path="res://scenes/world/SupplyStation.tscn" id="10_station"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wide"]
+size = Vector2(3240, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tall"]
+size = Vector2(60, 2060)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_post"]
+size = Vector2(34, 30)
+
+[node name="Village" type="Node2D"]
+script = ExtResource("1_village")
+map_bounds = Rect2(0, 0, 3200, 2000)
+spawn_point = Vector2(185, 1040)
+
+[node name="Ground" type="Node2D" parent="."]
+script = ExtResource("2_ground")
+map_bounds = Rect2(0, 0, 3200, 2000)
+paths = Array[Rect2]([Rect2(40, 985, 800, 74), Rect2(700, 800, 86, 240), Rect2(1740, 830, 240, 74), Rect2(760, 1050, 86, 350), Rect2(420, 1330, 440, 74), Rect2(560, 1150, 86, 220), Rect2(1120, 1060, 86, 340), Rect2(1120, 1326, 940, 74), Rect2(1650, 1330, 80, 240), Rect2(2160, 880, 330, 74), Rect2(2330, 700, 86, 260), Rect2(2300, 940, 86, 330), Rect2(2300, 1180, 700, 74)])
+plazas = Array[Rect2]([Rect2(1180, 780, 620, 460), Rect2(2150, 1180, 800, 560)])
+paddies = Array[Rect2]([Rect2(1200, 1420, 260, 200), Rect2(1490, 1420, 130, 200), Rect2(1760, 1420, 280, 200), Rect2(1200, 1650, 260, 200), Rect2(1490, 1650, 130, 200), Rect2(1760, 1650, 280, 200)])
+ponds = Array[Rect2]([Rect2(880, 1250, 190, 120)])
+gardens = Array[Rect2]([Rect2(470, 1400, 160, 110), Rect2(660, 1400, 160, 110), Rect2(470, 1560, 160, 110), Rect2(660, 1560, 160, 110)])
+open_soil = Array[Rect2]([Rect2(800, 700, 240, 170), Rect2(2280, 940, 320, 190), Rect2(450, 1000, 210, 120)])
+flower_patches = Array[Rect2]([Rect2(300, 1100, 320, 210), Rect2(890, 880, 220, 150), Rect2(1880, 1250, 220, 160), Rect2(2560, 1740, 320, 150), Rect2(1480, 1240, 320, 90), Rect2(2900, 980, 240, 220), Rect2(330, 1440, 300, 200)])
+
+[node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Entities" instance=ExtResource("4_player")]
+position = Vector2(185, 1040)
+
+[node name="Prop_gapura_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(330, 1055)
+kind = "gapura"
+solid = false
+
+[node name="Prop_sign_post_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(225, 1000)
+kind = "sign_post"
+
+[node name="Prop_tree_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(150, 890)
+kind = "tree"
+size = Vector2(150, 175)
+sway = true
+
+[node name="Prop_tree_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(190, 1260)
+kind = "tree"
+size = Vector2(130, 150)
+sway = true
+
+[node name="Prop_bamboo_clump_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(120, 1160)
+kind = "bamboo_clump"
+sway = true
+
+[node name="Prop_grass_tuft_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(460, 940)
+kind = "grass_tuft"
+
+[node name="Prop_grass_tuft_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(560, 1120)
+kind = "grass_tuft"
+
+[node name="Prop_flower_bush_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(430, 950)
+kind = "flower_bush"
+
+[node name="Prop_flower_bush_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(250, 1180)
+kind = "flower_bush"
+
+[node name="Prop_rock_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(520, 1240)
+kind = "rock"
+
+[node name="Prop_banner_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(640, 990)
+kind = "banner"
+variant = 0
+
+[node name="Prop_basket_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(450, 1020)
+kind = "basket"
+
+[node name="Prop_house_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(760, 810)
+kind = "house"
+size = Vector2(170, 145)
+variant = 0
+
+[node name="Prop_bench_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(870, 870)
+kind = "bench"
+
+[node name="Prop_flower_bush_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(700, 880)
+kind = "flower_bush"
+
+[node name="Prop_flower_bush_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(830, 890)
+kind = "flower_bush"
+
+[node name="Prop_table_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(690, 840)
+kind = "table"
+
+[node name="Prop_tree_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(990, 790)
+kind = "tree"
+size = Vector2(140, 165)
+sway = true
+
+[node name="Prop_fence_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(640, 700)
+kind = "fence"
+size = Vector2(160, 40)
+
+[node name="Prop_crate_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(640, 830)
+kind = "crate"
+
+[node name="Prop_lamp_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(930, 910)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_tree_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1400, 930)
+kind = "tree"
+size = Vector2(250, 270)
+sway = true
+
+[node name="Prop_bench_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1300, 1150)
+kind = "bench"
+
+[node name="Prop_bench_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1600, 1150)
+kind = "bench"
+
+[node name="Prop_bench_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1490, 830)
+kind = "bench"
+
+[node name="Prop_lamp_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1230, 850)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1740, 850)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1230, 1240)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1740, 1240)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_sign_post_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1560, 900)
+kind = "sign_post"
+
+[node name="Prop_banner_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1350, 800)
+kind = "banner"
+variant = 1
+
+[node name="Prop_banner_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1700, 1220)
+kind = "banner"
+variant = 0
+
+[node name="Prop_table_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1640, 1090)
+kind = "table"
+
+[node name="Prop_basket_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1690, 1110)
+kind = "basket"
+
+[node name="Prop_well_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1690, 1170)
+kind = "well"
+
+[node name="Prop_crate_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1250, 960)
+kind = "crate"
+
+[node name="Prop_flower_bush_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1200, 800)
+kind = "flower_bush"
+
+[node name="Prop_flower_bush_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1780, 1190)
+kind = "flower_bush"
+
+[node name="Prop_cart_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1500, 1210)
+kind = "cart"
+
+[node name="Prop_grass_tuft_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1180, 1100)
+kind = "grass_tuft"
+
+[node name="Prop_grass_tuft_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1800, 950)
+kind = "grass_tuft"
+
+[node name="Prop_balai_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1950, 700)
+kind = "balai"
+size = Vector2(330, 215)
+
+[node name="Prop_banner_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1800, 730)
+kind = "banner"
+variant = 1
+
+[node name="Prop_banner_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2130, 730)
+kind = "banner"
+variant = 0
+
+[node name="Prop_lamp_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1830, 790)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2170, 790)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_table_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2050, 910)
+kind = "table"
+
+[node name="Prop_crate_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2110, 940)
+kind = "crate"
+
+[node name="Prop_crate_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2160, 910)
+kind = "crate"
+
+[node name="Prop_sign_post_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1900, 900)
+kind = "sign_post"
+
+[node name="Prop_bench_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1880, 960)
+kind = "bench"
+
+[node name="Prop_flower_bush_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1790, 910)
+kind = "flower_bush"
+
+[node name="Prop_gapura_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2500, 1265)
+kind = "gapura"
+variant = 1
+solid = false
+
+[node name="Prop_stage_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2500, 1430)
+kind = "stage"
+size = Vector2(340, 150)
+
+[node name="Prop_lamp_08" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2230, 1270)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_09" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2820, 1270)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_10" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2230, 1570)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_lamp_11" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2820, 1570)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_banner_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2340, 1310)
+kind = "banner"
+variant = 0
+
+[node name="Prop_banner_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2680, 1310)
+kind = "banner"
+variant = 1
+
+[node name="Prop_bench_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2320, 1690)
+kind = "bench"
+
+[node name="Prop_bench_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2700, 1690)
+kind = "bench"
+
+[node name="Prop_fence_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2260, 1745)
+kind = "fence"
+size = Vector2(160, 40)
+
+[node name="Prop_fence_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2900, 1745)
+kind = "fence"
+size = Vector2(160, 40)
+
+[node name="Prop_fire_pit_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2500, 1670)
+kind = "fire_pit"
+glow = 0.0
+
+[node name="Prop_table_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2350, 1610)
+kind = "table"
+
+[node name="Prop_basket_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2400, 1630)
+kind = "basket"
+
+[node name="Prop_tree_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2180, 1810)
+kind = "tree"
+size = Vector2(150, 165)
+sway = true
+
+[node name="Prop_tree_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2920, 1320)
+kind = "tree"
+size = Vector2(140, 155)
+sway = true
+
+[node name="Prop_grass_tuft_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2600, 1780)
+kind = "grass_tuft"
+
+[node name="Prop_flower_bush_08" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2760, 1600)
+kind = "flower_bush"
+
+[node name="Prop_bamboo_clump_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(400, 1420)
+kind = "bamboo_clump"
+sway = true
+
+[node name="Prop_scarecrow_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(840, 1530)
+kind = "scarecrow"
+sway = true
+
+[node name="Prop_barrel_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(770, 1430)
+kind = "barrel"
+
+[node name="Prop_cart_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(870, 1630)
+kind = "cart"
+
+[node name="Prop_sign_post_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(430, 1630)
+kind = "sign_post"
+
+[node name="Prop_flower_bush_09" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(350, 1470)
+kind = "flower_bush"
+
+[node name="Prop_flower_bush_10" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(910, 1490)
+kind = "flower_bush"
+
+[node name="Prop_crate_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(350, 1620)
+kind = "crate"
+
+[node name="Prop_basket_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(610, 1660)
+kind = "basket"
+
+[node name="Prop_fence_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(620, 1730)
+kind = "fence"
+size = Vector2(200, 40)
+
+[node name="Prop_tree_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(300, 1710)
+kind = "tree"
+size = Vector2(140, 155)
+sway = true
+
+[node name="Prop_rice_sheaf_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(910, 1410)
+kind = "rice_sheaf"
+
+[node name="Prop_rice_sheaf_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(330, 1530)
+kind = "rice_sheaf"
+
+[node name="Prop_saung_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1700, 1630)
+kind = "saung"
+size = Vector2(135, 135)
+
+[node name="Prop_scarecrow_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1260, 1460)
+kind = "scarecrow"
+sway = true
+
+[node name="Prop_scarecrow_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1960, 1610)
+kind = "scarecrow"
+sway = true
+
+[node name="Prop_rice_sheaf_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1500, 1400)
+kind = "rice_sheaf"
+
+[node name="Prop_rice_sheaf_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1860, 1400)
+kind = "rice_sheaf"
+
+[node name="Prop_rice_sheaf_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1210, 1630)
+kind = "rice_sheaf"
+
+[node name="Prop_rice_sheaf_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1610, 1910)
+kind = "rice_sheaf"
+
+[node name="Prop_rice_sheaf_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1930, 1860)
+kind = "rice_sheaf"
+
+[node name="Prop_bamboo_clump_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1090, 1430)
+kind = "bamboo_clump"
+sway = true
+
+[node name="Prop_bamboo_clump_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2110, 1510)
+kind = "bamboo_clump"
+sway = true
+
+[node name="Prop_tree_08" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2160, 1710)
+kind = "tree"
+size = Vector2(150, 165)
+sway = true
+
+[node name="Prop_lamp_12" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1150, 1340)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_grass_tuft_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1130, 1580)
+kind = "grass_tuft"
+
+[node name="Prop_grass_tuft_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2060, 1780)
+kind = "grass_tuft"
+
+[node name="Prop_flower_bush_11" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1140, 1380)
+kind = "flower_bush"
+
+[node name="Prop_workshop_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2430, 730)
+kind = "workshop"
+size = Vector2(260, 180)
+
+[node name="Prop_wood_stack_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2300, 910)
+kind = "wood_stack"
+
+[node name="Prop_wood_stack_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2360, 910)
+kind = "wood_stack"
+
+[node name="Prop_crate_06" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2620, 900)
+kind = "crate"
+
+[node name="Prop_crate_07" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2670, 900)
+kind = "crate"
+
+[node name="Prop_tools_01" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2500, 940)
+kind = "tools"
+
+[node name="Prop_tools_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2570, 950)
+kind = "tools"
+
+[node name="Prop_table_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2420, 970)
+kind = "table"
+
+[node name="Prop_barrel_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2690, 960)
+kind = "barrel"
+
+[node name="Prop_sign_post_05" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2250, 860)
+kind = "sign_post"
+
+[node name="Prop_cart_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2190, 1010)
+kind = "cart"
+
+[node name="Prop_banner_08" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2660, 810)
+kind = "banner"
+variant = 1
+
+[node name="Prop_lamp_13" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2300, 720)
+kind = "lamp"
+glow = 0.0
+
+[node name="Prop_tree_09" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(420, 120)
+kind = "tree"
+size = Vector2(160, 180)
+sway = true
+
+[node name="Prop_tree_10" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(900, 110)
+kind = "tree"
+size = Vector2(150, 170)
+sway = true
+
+[node name="Prop_tree_11" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1500, 120)
+kind = "tree"
+size = Vector2(170, 190)
+sway = true
+
+[node name="Prop_tree_12" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2600, 110)
+kind = "tree"
+size = Vector2(160, 180)
+sway = true
+
+[node name="Prop_tree_13" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(3000, 400)
+kind = "tree"
+size = Vector2(150, 170)
+sway = true
+
+[node name="Prop_tree_14" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2950, 800)
+kind = "tree"
+size = Vector2(140, 160)
+sway = true
+
+[node name="Prop_tree_15" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(120, 1750)
+kind = "tree"
+size = Vector2(150, 170)
+sway = true
+
+[node name="Prop_tree_16" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(700, 1930)
+kind = "tree"
+size = Vector2(150, 170)
+sway = true
+
+[node name="Prop_tree_17" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2450, 1930)
+kind = "tree"
+size = Vector2(150, 170)
+sway = true
+
+[node name="Prop_tree_18" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(3050, 1600)
+kind = "tree"
+size = Vector2(140, 160)
+sway = true
+
+[node name="Prop_rock_02" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(700, 1930)
+kind = "rock"
+
+[node name="Prop_rock_03" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(3100, 1200)
+kind = "rock"
+
+[node name="Prop_rock_04" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(300, 800)
+kind = "rock"
+
+[node name="Prop_flower_bush_12" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(620, 1870)
+kind = "flower_bush"
+
+[node name="Prop_flower_bush_13" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(3000, 300)
+kind = "flower_bush"
+
+[node name="Prop_grass_tuft_08" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(480, 620)
+kind = "grass_tuft"
+
+[node name="Prop_grass_tuft_09" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(1050, 700)
+kind = "grass_tuft"
+
+[node name="Prop_grass_tuft_10" parent="Entities" instance=ExtResource("3_prop")]
+position = Vector2(2850, 600)
+kind = "grass_tuft"
+
+[node name="Npc_MbahSeno" parent="Entities" instance=ExtResource("5_npc")]
+position = Vector2(1450, 1080)
+npc_id = "mbah_seno"
+display_name = "Mbah Seno"
+dialogue_id = "mbah_seno"
+palette_id = "mbah_seno"
+start_facing = Vector2(0, 1)
+gather_position = Vector2(2470, 1530)
+
+[node name="Npc_Sari" parent="Entities" instance=ExtResource("5_npc")]
+position = Vector2(1960, 850)
+npc_id = "sari"
+display_name = "Sari"
+dialogue_id = "sari"
+palette_id = "sari"
+start_facing = Vector2(0, 1)
+gather_position = Vector2(2560, 1500)
+
+[node name="Npc_PakJaya" parent="Entities" instance=ExtResource("5_npc")]
+position = Vector2(2520, 850)
+npc_id = "pak_jaya"
+display_name = "Pak Jaya"
+dialogue_id = "pak_jaya"
+palette_id = "pak_jaya"
+start_facing = Vector2(0, 1)
+gather_position = Vector2(2620, 1560)
+
+[node name="Npc_BuRini" parent="Entities" instance=ExtResource("5_npc")]
+position = Vector2(560, 1520)
+npc_id = "bu_rini"
+display_name = "Bu Rini"
+dialogue_id = "bu_rini"
+palette_id = "bu_rini"
+start_facing = Vector2(1, 0)
+gather_position = Vector2(2420, 1580)
+
+[node name="Npc_Dimas" parent="Entities" instance=ExtResource("5_npc")]
+position = Vector2(1620, 1130)
+npc_id = "dimas"
+display_name = "Dimas"
+dialogue_id = "dimas"
+palette_id = "dimas"
+start_facing = Vector2(-1, 0)
+gather_position = Vector2(2540, 1620)
+alt_quest = "q_hilang"
+alt_position = Vector2(1700, 1700)
+
+[node name="Villager_Petani" parent="Entities" instance=ExtResource("6_villager")]
+position = Vector2(1300, 1120)
+npc_id = "warga_petani"
+display_name = "Pak Tani"
+dialogue_id = "bark_petani"
+palette_id = "warga_petani"
+start_facing = Vector2(1, 0)
+gather_position = Vector2(2380, 1500)
+wander_points = PackedVector2Array(-150, 0, 150, 0)
+wander_pause = 2.4
+
+[node name="Villager_Penjual" parent="Entities" instance=ExtResource("6_villager")]
+position = Vector2(1650, 880)
+npc_id = "warga_penjual"
+display_name = "Bu Warung"
+dialogue_id = "bark_penjual"
+palette_id = "warga_penjual"
+start_facing = Vector2(0, 1)
+gather_position = Vector2(2700, 1500)
+wander_points = PackedVector2Array(0, 150, -170, 150)
+wander_pause = 1.8
+
+[node name="Villager_Anak" parent="Entities" instance=ExtResource("6_villager")]
+position = Vector2(1400, 1010)
+npc_id = "warga_anak"
+display_name = "Nia"
+dialogue_id = "bark_anak"
+palette_id = "warga_anak"
+start_facing = Vector2(1, 0)
+gather_position = Vector2(2460, 1680)
+wander_points = PackedVector2Array(130, -60, 250, 60, 120, 130)
+wander_pause = 1.2
+
+[node name="Pickup_Bambu" parent="Entities" instance=ExtResource("7_pickup")]
+position = Vector2(1075, 1370)
+item_id = "bambu"
+quest_id = "q_persiapan"
+objective_id = "o_bambu"
+flag_id = "took_bambu"
+
+[node name="Board_Welcome" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(230, 1030)
+dialogue_id = "papan_selamat_datang"
+note_id = "guyub_desa"
+prompt_text = "Baca papan"
+
+[node name="Board_Square" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(1560, 900)
+dialogue_id = "papan_alun_alun"
+note_id = "gotong_royong"
+prompt_text = "Baca pengumuman"
+
+[node name="Board_Ricefield" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(1255, 1330)
+dialogue_id = "papan_sawah"
+note_id = "sambatan_sawah"
+prompt_text = "Baca papan"
+
+[node name="Board_Workshop" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(2250, 860)
+dialogue_id = "papan_bengkel"
+note_id = "warisan_ilmu"
+prompt_text = "Baca papan"
+
+[node name="Board_Well" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(1690, 1200)
+dialogue_id = "sumur"
+note_id = "sumur_bersama"
+prompt_text = "Periksa sumur"
+
+[node name="Board_Garden" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(430, 1630)
+dialogue_id = "kebun_bu_rini"
+note_id = "bahan_alam"
+prompt_text = "Periksa kebun"
+
+[node name="Board_Hall" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(1900, 900)
+dialogue_id = "balai_desa"
+note_id = "halaman_warga"
+prompt_text = "Baca papan"
+
+[node name="Board_Gate" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(620, 1080)
+dialogue_id = "papan_ajakan"
+prompt_text = "Baca papan"
+
+[node name="Board_Stage" parent="Entities" instance=ExtResource("8_board")]
+position = Vector2(2350, 1480)
+dialogue_id = "panggung"
+prompt_text = "Lihat panggung"
+
+[node name="Station_Persiapan" parent="Entities" instance=ExtResource("10_station")]
+position = Vector2(2540, 1560)
+required_items = PackedStringArray("bambu", "tali", "papan_kayu", "kain_pola")
+puzzle_id = "prep"
+prompt_text = "Susun perlengkapan"
+
+[node name="Zones" type="Node2D" parent="."]
+
+[node name="Zone_Entrance" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(400, 1030)
+area_title = "Desa Arunika"
+area_subtitle = "Gerbang desa"
+flag_id = "area_entrance"
+zone_size = Vector2(460, 520)
+
+[node name="Zone_House" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(780, 900)
+area_title = "Rumah Raka"
+area_subtitle = "Rumah yang lama ditinggalkan"
+flag_id = "area_house"
+zone_size = Vector2(380, 380)
+
+[node name="Zone_Square" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(1490, 1010)
+area_title = "Alun-Alun Desa"
+area_subtitle = "Tempat warga berkumpul"
+flag_id = "area_square"
+zone_size = Vector2(620, 460)
+
+[node name="Zone_Hall" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(1990, 800)
+area_title = "Balai Desa"
+area_subtitle = "Pusat kegiatan warga"
+flag_id = "area_hall"
+zone_size = Vector2(520, 420)
+
+[node name="Zone_Garden" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(620, 1520)
+area_title = "Kebun Bu Rini"
+area_subtitle = "Kebun yang dirawat berbagi"
+flag_id = "area_garden"
+zone_size = Vector2(520, 420)
+
+[node name="Zone_Ricefield" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(1620, 1660)
+area_title = "Sawah Arunika"
+area_subtitle = "Sambatan saat musim tanam"
+flag_id = "area_ricefield"
+zone_size = Vector2(900, 420)
+
+[node name="Zone_Workshop" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(2450, 850)
+area_title = "Bengkel Pak Jaya"
+area_subtitle = "Ilmu yang diwariskan"
+flag_id = "area_workshop"
+zone_size = Vector2(560, 420)
+
+[node name="Zone_Field" parent="Zones" instance=ExtResource("9_zone")]
+position = Vector2(2550, 1420)
+area_title = "Lapangan Guyub"
+area_subtitle = "Tempat acara dimulai"
+flag_id = "area_field"
+zone_size = Vector2(760, 520)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Wall_Top" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1600, 20)
+shape = SubResource("RectangleShape2D_wide")
+
+[node name="Wall_Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1600, 1980)
+shape = SubResource("RectangleShape2D_wide")
+
+[node name="Wall_Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2(20, 1000)
+shape = SubResource("RectangleShape2D_tall")
+
+[node name="Wall_Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2(3180, 1000)
+shape = SubResource("RectangleShape2D_tall")
+
+[node name="Gapura_West_A" type="CollisionShape2D" parent="Walls"]
+position = Vector2(270, 1055)
+shape = SubResource("RectangleShape2D_post")
+
+[node name="Gapura_West_B" type="CollisionShape2D" parent="Walls"]
+position = Vector2(390, 1055)
+shape = SubResource("RectangleShape2D_post")
+
+[node name="Gapura_Field_A" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2440, 1265)
+shape = SubResource("RectangleShape2D_post")
+
+[node name="Gapura_Field_B" type="CollisionShape2D" parent="Walls"]
+position = Vector2(2560, 1265)
+shape = SubResource("RectangleShape2D_post")
+

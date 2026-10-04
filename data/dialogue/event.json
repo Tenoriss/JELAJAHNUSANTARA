@@ -1,0 +1,102 @@
+{
+	"guyub_siap": {
+		"nodes": [
+			{
+				"id": "selesai",
+				"conditions": {},
+				"lines": [
+					{
+						"speaker": "Sari",
+						"text": "Gapura berdiri!",
+						"portrait": "sari"
+					},
+					{
+						"speaker": "Dimas",
+						"text": "Mejanya juga sudah. Kuat, kan?",
+						"portrait": "dimas"
+					},
+					{
+						"speaker": "Pak Jaya",
+						"text": "Papan ini dipasang dengan rapi. Bagus, Raka.",
+						"portrait": "pak_jaya"
+					},
+					{
+						"speaker": "Bu Rini",
+						"text": "Bunganya saya taruh di atas meja. Sudah boleh duduk.",
+						"portrait": "bu_rini"
+					},
+					{
+						"speaker": "Mbah Seno",
+						"text": "Tinggal satu hal.",
+						"portrait": "mbah_seno"
+					},
+					{
+						"speaker": "Mbah Seno",
+						"text": "Kumpulkan warga. Acara kita mulai.",
+						"portrait": "mbah_seno"
+					}
+				],
+				"effects": {
+					"complete_objectives": [
+						{
+							"quest": "q_guyub",
+							"objective": "o_hias"
+						}
+					],
+					"set_flags": {
+						"event_ready": true
+					},
+					"remove_items": [
+						"bambu",
+						"tali",
+						"papan_kayu",
+						"kain_pola"
+					],
+					"message": "Warga mulai berkumpul di Lapangan Guyub.",
+					"sfx": "sparkle",
+					"start_dialogue": "acara_dimulai"
+				}
+			}
+		]
+	},
+	"persiapan_kurang": {
+		"nodes": [
+			{
+				"id": "kurang",
+				"conditions": {},
+				"lines": [
+					{
+						"speaker": "Sari",
+						"text": "Perlengkapannya belum lengkap. Kita tidak bisa mulai.",
+						"portrait": "sari"
+					},
+					{
+						"speaker": "Sari",
+						"text": "Coba cek lagi bengkel, kebun, dan tepi sawah.",
+						"portrait": "sari"
+					}
+				]
+			}
+		]
+	},
+	"acara_dimulai": {
+		"nodes": [
+			{
+				"id": "mulai",
+				"conditions": {},
+				"lines": [
+					{
+						"speaker": "Lapangan Guyub",
+						"text": "Warga sudah berkumpul di panggung.",
+						"color": "#f2b134"
+					},
+					{
+						"speaker": "Lapangan Guyub",
+						"text": "Dekati panggung dan bicaralah dengan Mbah Seno.",
+						"color": "#dfcdae"
+					}
+				]
+			}
+		]
+	}
+}

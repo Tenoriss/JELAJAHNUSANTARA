@@ -1,0 +1,83 @@
+{
+	"q_pulang": {
+		"title": "Pulang",
+		"description": "Raka kembali ke Desa Arunika. Katanya warga sedang bersiap untuk acara Guyub Desa.",
+		"order": 1,
+		"objectives": [
+			{"id": "o_seno", "text": "Temui Mbah Seno di alun-alun desa", "required": 1}
+		],
+		"on_complete": {
+			"message": "Mbah Seno menjelaskan persiapan Guyub Desa.",
+			"set_flags": {"met_seno": true},
+			"start_quest": "q_persiapan"
+		}
+	},
+	"q_persiapan": {
+		"title": "Persiapan Desa",
+		"description": "Warga membutuhkan tiga perlengkapan untuk acara Guyub Desa.",
+		"order": 2,
+		"objectives": [
+			{"id": "o_bambu", "text": "Ambil bambu di tepi sawah", "required": 1, "item": "bambu"},
+			{"id": "o_tali", "text": "Ambil tali ijuk dari Bu Rini", "required": 1, "item": "tali"},
+			{"id": "o_papan", "text": "Ambil papan kayu dari Pak Jaya", "required": 1, "item": "papan_kayu"}
+		],
+		"on_complete": {
+			"message": "Tiga perlengkapan sudah terkumpul.",
+			"set_flags": {"supplies_ready": true},
+			"start_quest": "q_hilang"
+		}
+	},
+	"q_hilang": {
+		"title": "Yang Hilang",
+		"description": "Sari bilang kain pola untuk panggung hilang. Warga sudah mencarinya sejak pagi.",
+		"order": 3,
+		"objectives": [
+			{"id": "o_tanya", "text": "Tanyakan soal kain pola kepada warga", "required": 1},
+			{"id": "o_temu", "text": "Temukan kain pola yang hilang", "required": 1}
+		],
+		"on_complete": {
+			"message": "Kain pola sudah kembali.",
+			"set_flags": {"cloth_found": true},
+			"start_quest": "q_belajar"
+		}
+	},
+	"q_belajar": {
+		"title": "Belajar Bersama",
+		"description": "Pak Jaya bersedia mengajari Raka arti pola pada kain itu di bengkel.",
+		"order": 4,
+		"objectives": [
+			{"id": "o_belajar", "text": "Dengarkan penjelasan Pak Jaya", "required": 1},
+			{"id": "o_pola", "text": "Susun kembali pola di bengkel", "required": 1}
+		],
+		"on_complete": {
+			"message": "Raka paham arti pola kain itu.",
+			"set_flags": {"learned_pattern": true},
+			"start_quest": "q_guyub"
+		}
+	},
+	"q_guyub": {
+		"title": "Guyub",
+		"description": "Saatnya menyiapkan Lapangan Guyub bersama warga desa.",
+		"order": 5,
+		"objectives": [
+			{"id": "o_hias", "text": "Susun perlengkapan di Lapangan Guyub", "required": 1},
+			{"id": "o_kumpul", "text": "Kumpulkan warga saat acara dimulai", "required": 1}
+		],
+		"on_complete": {
+			"message": "Acara Guyub Desa dimulai.",
+			"set_flags": {"ceremony_started": true},
+			"start_quest": "q_tapak"
+		}
+	},
+	"q_tapak": {
+		"title": "Tapak yang Ditinggalkan",
+		"description": "Raka menyaksikan warga bekerja bersama. Ada hal yang ia bawa pulang kali ini.",
+		"order": 6,
+		"objectives": [
+			{"id": "o_acara", "text": "Saksikan acara Guyub Desa", "required": 1}
+		],
+		"on_complete": {
+			"message": "Cerita ini selesai — setidaknya untuk sekarang."
+		}
+	}
+}

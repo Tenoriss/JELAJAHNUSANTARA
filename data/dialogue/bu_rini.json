@@ -1,0 +1,56 @@
+{
+	"bu_rini": {
+		"nodes": [
+			{
+				"id": "tali",
+				"priority": 20,
+				"conditions": {"quest_active": "q_persiapan", "not_flags": {"has_tali": true}},
+				"lines": [
+					{"speaker": "Bu Rini", "text": "Raka? Sudah tinggi sekarang.", "portrait": "bu_rini"},
+					{"speaker": "Raka", "text": "Bu Rini, saya butuh tali ijuk untuk acara.", "portrait": "raka"},
+					{"speaker": "Bu Rini", "text": "Ambil di keranjang itu. Saya pilin sendiri.", "portrait": "bu_rini"},
+					{"speaker": "Raka", "text": "Terima kasih, Bu.", "portrait": "raka"},
+					{"speaker": "Bu Rini", "text": "Nanti kalau acara selesai, bawa pulang sayurnya.", "portrait": "bu_rini"},
+					{"speaker": "Bu Rini", "text": "Kebun ini tidak pernah keberatan kalau dirawat bersama.", "portrait": "bu_rini"}
+				],
+				"effects": {
+					"give_items": ["tali"],
+					"advance_objectives": [{"quest": "q_persiapan", "objective": "o_tali"}],
+					"set_flags": {"has_tali": true}
+				}
+			},
+			{
+				"id": "hilang",
+				"priority": 20,
+				"conditions": {"quest_active": "q_hilang", "not_flags": {"asked_cloth": true}},
+				"lines": [
+					{"speaker": "Bu Rini", "text": "Soal kain pola itu... semalam saya lihat Dimas lewat sini.", "portrait": "bu_rini"},
+					{"speaker": "Raka", "text": "Dimas?", "portrait": "raka"},
+					{"speaker": "Bu Rini", "text": "Dia bilang ingin menyalin polanya.", "portrait": "bu_rini"},
+					{"speaker": "Bu Rini", "text": "Anak muda, tapi mau belajar. Jangan dimarahi dulu.", "portrait": "bu_rini"}
+				],
+				"effects": {
+					"complete_objectives": [{"quest": "q_hilang", "objective": "o_tanya"}],
+					"set_flags": {"asked_cloth": true}
+				}
+			},
+			{
+				"id": "persiapan_hint",
+				"priority": 9,
+				"conditions": {"quest_active": "q_persiapan"},
+				"lines": [
+					{"speaker": "Bu Rini", "text": "Bambu di tepi sawah, talinya sudah kamu bawa.", "portrait": "bu_rini"},
+					{"speaker": "Bu Rini", "text": "Papan kayunya di bengkel Pak Jaya.", "portrait": "bu_rini"}
+				]
+			},
+			{
+				"id": "default",
+				"conditions": {},
+				"lines": [
+					{"speaker": "Bu Rini", "text": "Tanaman ini saya rawat sejak suami saya masih ada.", "portrait": "bu_rini"},
+					{"speaker": "Bu Rini", "text": "Yang penting bukan hasilnya, tapi siapa yang ikut merawatnya.", "portrait": "bu_rini"}
+				]
+			}
+		]
+	}
+}

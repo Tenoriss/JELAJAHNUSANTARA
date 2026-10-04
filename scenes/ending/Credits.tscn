@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ending/Credits.gd" id="1_credits"]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_credits")
+
+[node name="Clip" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+clip_contents = true
+mouse_filter = 2
+
+[node name="Roll" type="VBoxContainer" parent="Clip"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -420.0
+offset_right = 420.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+theme_override_constants/separation = 14
+
+[node name="Footer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -104.0
+offset_right = 240.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="Hint" type="Label" parent="Footer"]
+text = "ESC atau tombol di bawah untuk kembali ke menu"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(0.76863, 0.68235, 0.54902, 1)
+theme_override_font_sizes/font_size = 15
+
+[node name="BackButton" type="Button" parent="Footer"]
+custom_minimum_size = Vector2(320, 46)
+text = "Kembali ke Menu Utama"

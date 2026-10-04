@@ -1,0 +1,35 @@
+{
+	"opening_narasi": {
+		"nodes": [
+			{
+				"id": "pembuka",
+				"conditions": {},
+				"lines": [
+					{"narration": true, "text": "Bus terakhir berhenti di ujung jalan desa.", "pause": 3.0},
+					{"narration": true, "text": "Raka turun membawa satu tas. Sudah lima tahun ia tidak pulang.", "pause": 3.6},
+					{"narration": true, "text": "Udara desa masih sama: tanah setelah hujan, suara bambu, dan langit yang terbuka.", "pause": 4.0},
+					{"narration": true, "text": "Di gapura, sebuah papan menyebut satu acara: Guyub Desa.", "pause": 3.4},
+					{"narration": true, "text": "Raka belum tahu, bahwa kali ini ia akan ikut membangunnya.", "pause": 3.4},
+					{"narration": true, "text": "Catatan: Guyub Desa adalah tradisi fiktif dalam game ini — gambaran semangat gotong royong masyarakat Indonesia, bukan nama ritual resmi daerah tertentu.", "pause": 5.5}
+				]
+			}
+		]
+	},
+	"ending_narasi": {
+		"nodes": [
+			{
+				"id": "penutup",
+				"conditions": {},
+				"lines": [
+					{"narration": true, "text": "Warga berkumpul di Lapangan Guyub.", "pause": 3.2},
+					{"narration": true, "text": "Lampu menyala satu per satu. Tidak ada yang berdiri sendiri.", "pause": 3.8},
+					{"narration": true, "text": "Raka melihat warga bekerja bersama — dan baru sadar kenapa ia pulang.", "pause": 4.0},
+					{"narration": true, "text": "Kadang yang hampir hilang bukan tradisinya.", "pause": 3.6},
+					{"narration": true, "text": "Melainkan alasan mengapa kita menjaganya.", "pause": 3.6},
+					{"narration": true, "text": "Warisan bukan hanya sesuatu yang kita terima.", "pause": 3.4},
+					{"narration": true, "text": "Warisan adalah sesuatu yang kita teruskan.", "pause": 4.0}
+				]
+			}
+		]
+	}
+}
