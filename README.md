@@ -20,16 +20,24 @@ Repositori ini sudah menyiapkan berkas `.vscode/` (ekstensi yang disarankan,
 tugas siap pakai, dan konfigurasi debug), jadi urutannya singkat:
 
 1. **VS Code → File → Open Folder…** lalu pilih folder **akar** repositori ini
-   (yang berisi `project.godot`).
+   (yang berisi `project.godot` dan `web/`).
 2. Saat muncul tawaran *"This workspace has extension recommendations"* →
    **Install**. Yang penting:
    * **Godot Tools** (`geequlim.godot-tools`) — untuk menjalankan & men-debug
-     proyek dari VS Code.
+     proyek Godot dari VS Code.
    * **Python** + **Pylance** — untuk skrip di `tools/`.
+   * Ekstensi **TypeScript/JavaScript bawaan VS Code** sudah cukup untuk `web/`.
    Bila perlu memasang manual: `Ctrl+Shift+X` → cari nama di atas.
-3. Pastikan **Godot 4.x** terpasang, lalu tekan **F5** dengan konfigurasi
-   *Godot: jalankan proyek* (atau buka `project.godot` dengan Godot dan tekan
-   F5 di sana).
+3. Pilih mau mengerjakan yang mana:
+   * **Versi web (paling cepat terlihat):** buka terminal (`Ctrl+`` ` ``) lalu
+     jalankan tugas **`Web: pasang dependensi`** sekali (`Terminal → Run Task…`),
+     kemudian **`Web: jalankan dev server`**, lalu buka http://localhost:5173.
+     Atau cukup tekan **F5** dengan konfigurasi *Web: buka di Chrome*.
+   * **Versi Godot:** pastikan Godot 4 sudah terpasang, lalu tekan **F5**
+     dengan konfigurasi *Godot: jalankan proyek* (atau buka `project.godot`
+     dengan Godot dan tekan F5 di sana).
+4. Untuk memeriksa semuanya: **`Terminal → Run Task… → Semua: periksa proyek`**
+   (menjalankan tiga pemeriksa Godot dan seluruh uji versi web).
 
 Kalau `godot` tidak ada di PATH, buka **Settings → Godot Tools → Editor Path:
 Godot 4** lalu arahkan ke berkas biner Godot 4 Anda.
@@ -38,13 +46,28 @@ Tugas lain yang tersedia di `Terminal → Run Task…`:
 
 | Tugas | Kegunaan |
 | --- | --- |
+| `Web: jalankan dev server` | Vite dengan pratinjau langsung (port 5173) |
+| `Web: periksa tipe` / `Web: uji semua` / `Web: build produksi` | Pemeriksaan & build versi web |
 | `Godot: unduh dokumentasi API (sekali, butuh internet)` | Menyiapkan `tools/validate_project.py` |
-| `Godot: periksa proyek` / `Godot: audit alur cerita` / `Godot: periksa peta` | Pemeriksa statis proyek |
+| `Godot: periksa proyek` / `Godot: audit alur cerita` / `Godot: periksa peta` | Pemeriksa statis proyek Godot |
 | `Godot: bangun ulang peta` | Menulis ulang `Village.tscn` + `data/world/village.json` |
-| `Semua: periksa proyek` | Ketiga pemeriksa di atas, berurutan |
+| `Semua: periksa proyek` | Semua pemeriksaan di atas, berurutan |
 
+## Dua Versi, Satu Cerita
 
-## Cara Menjalankan
+Repositori ini memuat dua cara memainkan TAPAK NUSA dengan alur cerita yang sama:
+
+| Versi | Lokasi | Teknologi | Cara menjalankan |
+| --- | --- | --- | --- |
+| **Godot (utama)** | akar repositori | Godot 4.x + GDScript | buka `project.godot`, tekan **F5** |
+| **Web** | `web/` | React + TypeScript + Canvas 2D | `cd web && npm install && npm run dev` |
+
+Keduanya membaca data yang sama di `data/` — naskah dialog, quest, barang, dan
+catatan budaya tidak ditulis dua kali. Versi web menggambar seluruh isinya dari
+bentuk dasar di Canvas (tanpa berkas gambar), sama seperti versi Godot yang
+menggambar secara prosedural.
+
+## Cara Menjalankan (Godot)
 
 1. Pasang **Godot 4.x** (versi stabil apa pun; proyek memakai fitur dasar dan
    sudah diperiksa terhadap API Godot 4.2 sampai 4.7).
@@ -131,6 +154,11 @@ assets/
   ui/theme/            Tema antarmuka (TapakNusa.tres)
   characters/ environment/ ui/ audio/ fonts/   Tempat aset tambahan (lihat catatan di dalam)
 tools/                 Skrip bantu pengembangan (tidak diimpor Godot)
+web/                   Versi web (React + TypeScript + Canvas 2D)
+  src/core/            Data, quest, dialog, inventaris, simpan/muat, audio
+  src/game/            Mesin dunia: gambar karakter, properti, tanah, partikel
+  src/ui/              Layar & panel antarmuka
+  tools/               Uji otomatis alur cerita, gambar, dan antarmuka
 ```
 
 ## Pengembangan & Pemeriksaan
@@ -155,8 +183,6 @@ skrip bantu di `tools/`:
 * `python3 tools/make_icon.py` — membuat `icon.png` game.
 * `python3 tools/fetch_api_docs.py` — mengunduh dokumentasi kelas Godot untuk
   pemeriksa statis (hanya untuk pengembangan, tidak dibutuhkan untuk bermain).
-* `bash tools/split_prs.sh` — membantu memecah riwayat cabang menjadi dua
-  pull request terpisah (versi Godot dan versi web).
 
 Contoh urutan pemeriksaan sebelum membuka Godot:
 
@@ -175,6 +201,45 @@ Hasil terakhir: **45 skrip, 24 scene, 0 error, 0 peringatan**; alur cerita 0
 masalah; peta 5,41 dari 6,4 juta px² terjangkau dengan 22 titik penting
 (termasuk titik kumpul warga) semuanya bisa dicapai, dan pemain tidak bisa
 keluar dari peta.
+
+Untuk versi web:
+
+```bash
+cd web && npm test   # 135 pemeriksaan: 59 alur, 16 gambar, 60 antarmuka
+```
+
+Semua lolos: cerita bisa ditamatkan, seluruh 130 properti peta tergambar tanpa
+galat, tidak ada koordinat NaN, dan antarmuka React tidak memunculkan satu pun
+galat saat dijalankan dari menu sampai kredit.
+
+## Versi Web (React)
+
+Versi ini memakai **React + TypeScript + Vite** dengan **Canvas 2D** buatan
+sendiri (tanpa mesin game pihak ketiga), dan menjalankan alur yang sama persis:
+pembuka → enam quest → dua puzzle → acara → penutup → kredit.
+
+```bash
+cd web
+npm install          # sekali saja
+npm run dev          # http://localhost:5173
+```
+
+Kontrol sama seperti versi Godot: **WASD**/panah berjalan, **E** berbicara atau
+mengambil, **SPACE/E/Enter** melanjutkan dialog, **Q/J** jurnal quest, **ESC**
+menu jeda, klik kiri menyusun puzzle.
+
+Pemeriksaan otomatis (tanpa peramban, memakai jsdom):
+
+```bash
+cd web
+npm test             # typecheck + tiga uji di bawah
+npm run test:flow    # alur cerita penuh: menu → enam quest → puzzle → kredit
+npm run test:render  # semua properti & karakter digambar lewat Canvas tiruan
+npm run test:ui      # memasang seluruh antarmuka React dan menjalankannya
+```
+
+`npm run build` menghasilkan berkas statis di `web/dist/` yang bisa dibuka
+langsung dari server berkas biasa.
 
 ## Catatan Budaya
 

@@ -2,7 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "//": "Perlu ekstensi Godot Tools. Jalankan proyek dari VS Code (F5).",
+      "name": "Web: buka di Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/web",
+      "preLaunchTask": "Web: jalankan dev server",
+      "sourceMaps": true
+    },
+    {
+      "name": "Web: buka di Edge",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/web",
+      "preLaunchTask": "Web: jalankan dev server",
+      "sourceMaps": true
+    },
+    {
+      "//": "Perlu ekstensi Godot Tools. Jalankan proyek Godot (akar repo) dari VS Code.",
       "name": "Godot: jalankan proyek",
       "type": "godot",
       "request": "launch",

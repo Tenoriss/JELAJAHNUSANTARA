@@ -1,16 +1,24 @@
 {
-  "//": "Pengaturan VS Code untuk TAPAK NUSA (proyek Godot di akar repositori).",
+  "//": "Pengaturan VS Code untuk TAPAK NUSA (Godot di akar, versi web React di web/).",
 
   "files.exclude": {
     "**/.godot": true,
+    "**/node_modules": true,
+    "**/web/dist": true,
+    "**/web/.shots": true,
     "**/__pycache__": true
   },
   "search.exclude": {
     "**/.godot": true,
-    "**/__pycache__": true
+    "**/node_modules": true,
+    "**/web/dist": true,
+    "**/web/.shots": true,
+    "**/package-lock.json": true
   },
   "files.watcherExclude": {
-    "**/.godot/**": true
+    "**/.godot/**": true,
+    "**/node_modules/**": true,
+    "**/web/dist/**": true
   },
   "files.associations": {
     "*.tscn": "ini",
@@ -28,6 +36,9 @@
   "[python]": {
     "editor.tabSize": 4
   },
+
+  "typescript.tsdk": "web/node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "relative",
 
   "terminal.integrated.cwd": "${workspaceFolder}",
   "python.analysis.extraPaths": ["${workspaceFolder}/tools"],

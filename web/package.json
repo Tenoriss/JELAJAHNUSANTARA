@@ -1,0 +1,31 @@
+{
+  "name": "tapak-nusa-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "TAPAK NUSA \u2014 versi web (React + Canvas 2D) dari game petualangan Desa Arunika.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && npm run test:flow && npm run test:render && npm run test:ui",
+    "test:flow": "tsx tools/smoke.ts",
+    "test:render": "tsx tools/render-smoke.ts",
+    "test:ui": "tsx tools/ui-smoke.ts"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^30.1.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.7"
+  }
+}

@@ -2,6 +2,59 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Web: pasang dependensi",
+      "detail": "Sekali saja setelah clone (npm install)",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/web" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Web: jalankan dev server",
+      "detail": "Vite di http://localhost:5173 — kosongkan kalau mau berhenti",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/web" },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": [{ "regexp": "^$" }],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "VITE .* ready",
+          "endsPattern": "Local:\\s+http"
+        }
+      },
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Web: periksa tipe",
+      "detail": "tsc --noEmit",
+      "type": "shell",
+      "command": "npm run typecheck",
+      "options": { "cwd": "${workspaceFolder}/web" },
+      "group": "test",
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "Web: uji semua",
+      "detail": "135 pemeriksaan: alur cerita, gambar, antarmuka",
+      "type": "shell",
+      "command": "npm test",
+      "options": { "cwd": "${workspaceFolder}/web" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Web: build produksi",
+      "detail": "Hasilnya di web/dist/",
+      "type": "shell",
+      "command": "npm run build",
+      "options": { "cwd": "${workspaceFolder}/web" },
+      "group": "build",
+      "problemMatcher": ["$tsc"]
+    },
+    {
       "label": "Godot: unduh dokumentasi API (sekali, butuh internet)",
       "detail": "Hanya untuk pemeriksa statis tools/validate_project.py",
       "type": "shell",
@@ -15,7 +68,6 @@
       "type": "shell",
       "command": "python3 tools/validate_project.py --api /tmp/godot_api --compat /tmp/godot_api_42",
       "options": { "cwd": "${workspaceFolder}" },
-      "group": { "kind": "test", "isDefault": true },
       "problemMatcher": []
     },
     {
@@ -43,7 +95,7 @@
     {
       "label": "Semua: periksa proyek",
       "dependsOrder": "sequence",
-      "dependsOn": ["Godot: periksa proyek", "Godot: audit alur cerita", "Godot: periksa peta"],
+      "dependsOn": ["Godot: periksa proyek", "Godot: audit alur cerita", "Godot: periksa peta", "Web: uji semua"],
       "problemMatcher": []
     }
   ]
